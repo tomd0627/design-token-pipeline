@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A working design token pipeline: Figma variables transformed through Style Dictionary into platform-ready CSS and JavaScript tokens."
+    />
+    <title>Design Token Pipeline</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="site-header__inner">
+          <a href="#hero" class="site-logo" aria-label="Design Token Pipeline — home">
+            <span class="site-logo__icon" aria-hidden="true" data-icon="pipeline"></span>
+            <span class="site-logo__text">Token Pipeline</span>
+          </a>
+          <nav id="site-nav" aria-label="Page sections">
+            <ul class="nav-list" role="list">
+              <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
+              <li><a href="#gallery" class="nav-link">Tokens</a></li>
+              <li><a href="#output" class="nav-link">Output</a></li>
+              <li><a href="#usage" class="nav-link">Usage</a></li>
+            </ul>
+          </nav>
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ─── Hero ─────────────────────────────────────────────── -->
+      <section id="hero" class="hero" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="hero__inner">
+            <div class="hero__content">
+              <div class="badge-group" aria-label="Technology stack">
+                <span class="badge badge--orange">
+                  <span aria-hidden="true" data-icon="figma" class="badge__icon"></span>
+                  Figma Variables
+                </span>
+                <span class="badge badge--muted" aria-hidden="true">→</span>
+                <span class="badge badge--sky">
+                  <span aria-hidden="true" data-icon="zap" class="badge__icon"></span>
+                  Style Dictionary
+                </span>
+                <span class="badge badge--muted" aria-hidden="true">→</span>
+                <span class="badge badge--orange">
+                  <span aria-hidden="true" data-icon="layers" class="badge__icon"></span>
+                  Platform Tokens
+                </span>
+              </div>
+
+              <h1 id="hero-heading" class="hero__heading">
+                Design Tokens,<br />
+                <span class="text-gradient">End to End.</span>
+              </h1>
+
+              <p class="hero__subheading">
+                A production-grade pipeline that transforms structured token definitions into
+                platform-ready CSS custom properties and typed JavaScript exports — the same
+                workflow that powers enterprise design systems at scale.
+              </p>
+
+              <div class="hero__actions">
+                <a href="#pipeline" class="btn btn--primary">
+                  <span aria-hidden="true" data-icon="arrow-down" class="btn__icon"></span>
+                  See the Pipeline
+                </a>
+                <a
+                  href="https://github.com/tomd0627/design-token-pipeline"
+                  class="btn btn--ghost"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span aria-hidden="true" data-icon="github" class="btn__icon"></span>
+                  View Source
+                </a>
+              </div>
+            </div>
+
+            <div class="hero__visual" aria-hidden="true">
+              <div class="token-orb token-orb--orange"></div>
+              <div class="token-orb token-orb--sky"></div>
+              <div class="hero__code-preview">
+                <div class="code-window">
+                  <div class="code-window__chrome">
+                    <span class="code-window__dot"></span>
+                    <span class="code-window__dot"></span>
+                    <span class="code-window__dot"></span>
+                    <span class="code-window__filename">color.json</span>
+                  </div>
+                  <pre class="code-window__body"><code><span class="token-syntax token-syntax--brace">{</span>
+  <span class="token-syntax token-syntax--key">"color"</span><span class="token-syntax token-syntax--colon">:</span> <span class="token-syntax token-syntax--brace">{</span>
+    <span class="token-syntax token-syntax--key">"orange"</span><span class="token-syntax token-syntax--colon">:</span> <span class="token-syntax token-syntax--brace">{</span>
+      <span class="token-syntax token-syntax--key">"500"</span><span class="token-syntax token-syntax--colon">:</span> <span class="token-syntax token-syntax--brace">{</span>
+        <span class="token-syntax token-syntax--key">"$type"</span><span class="token-syntax token-syntax--colon">:</span> <span class="token-syntax token-syntax--string">"color"</span><span class="token-syntax token-syntax--comma">,</span>
+        <span class="token-syntax token-syntax--key">"$value"</span><span class="token-syntax token-syntax--colon">:</span> <span class="token-syntax token-syntax--string">"#f97316"</span>
+      <span class="token-syntax token-syntax--brace">}</span>
+    <span class="token-syntax token-syntax--brace">}</span>
+  <span class="token-syntax token-syntax--brace">}</span>
+<span class="token-syntax token-syntax--brace">}</span></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Pipeline ─────────────────────────────────────────── -->
+      <section id="pipeline" class="pipeline" aria-labelledby="pipeline-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="pipeline-heading" class="section-heading">The Pipeline</h2>
+            <p class="section-subheading">
+              Tokens are defined once in a format-agnostic source and transformed into every
+              platform artifact your team needs.
+            </p>
+          </div>
+
+          <ol class="pipeline__steps" aria-label="Pipeline stages">
+            <li class="pipeline__step">
+              <div class="pipeline__step-icon pipeline__step-icon--orange" aria-hidden="true">
+                <span data-icon="file-json"></span>
+              </div>
+              <div class="pipeline__step-body">
+                <h3 class="pipeline__step-title">Token Source</h3>
+                <p class="pipeline__step-desc">
+                  Design decisions captured as structured JSON following the W3C Design Token
+                  Community Group spec. Each token carries a <code>$type</code> and
+                  <code>$value</code>.
+                </p>
+                <ul class="pipeline__step-tags" aria-label="Token categories">
+                  <li class="tag">Color</li>
+                  <li class="tag">Typography</li>
+                  <li class="tag">Spacing</li>
+                  <li class="tag">Shadow</li>
+                  <li class="tag">Motion</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="pipeline__step pipeline__step--connector" aria-hidden="true">
+              <div class="pipeline__connector">
+                <span data-icon="arrow-right"></span>
+              </div>
+            </li>
+
+            <li class="pipeline__step">
+              <div class="pipeline__step-icon pipeline__step-icon--sky" aria-hidden="true">
+                <span data-icon="settings-2"></span>
+              </div>
+              <div class="pipeline__step-body">
+                <h3 class="pipeline__step-title">Style Dictionary</h3>
+                <p class="pipeline__step-desc">
+                  Tokens-Studio SD transforms pre-process DTCG format tokens. Style Dictionary
+                  v4 then applies platform-specific transforms and formats the output.
+                </p>
+                <ul class="pipeline__step-tags" aria-label="Transforms applied">
+                  <li class="tag">DTCG Pre-process</li>
+                  <li class="tag">Name Transform</li>
+                  <li class="tag">Value Transform</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="pipeline__step pipeline__step--connector" aria-hidden="true">
+              <div class="pipeline__connector">
+                <span data-icon="arrow-right"></span>
+              </div>
+            </li>
+
+            <li class="pipeline__step">
+              <div class="pipeline__step-icon pipeline__step-icon--orange" aria-hidden="true">
+                <span data-icon="package-2"></span>
+              </div>
+              <div class="pipeline__step-body">
+                <h3 class="pipeline__step-title">Platform Output</h3>
+                <p class="pipeline__step-desc">
+                  A single token source produces multiple output artifacts — each optimized for
+                  its target environment with correct naming conventions.
+                </p>
+                <ul class="pipeline__step-tags" aria-label="Output formats">
+                  <li class="tag tag--orange">CSS Custom Properties</li>
+                  <li class="tag tag--sky">ES Module JS</li>
+                  <li class="tag tag--sky">TypeScript Declarations</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ─── Token Gallery ─────────────────────────────────────── -->
+      <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="gallery-heading" class="section-heading">Token Gallery</h2>
+            <p class="section-subheading">
+              Every visual decision in this site is driven by generated tokens. Browse the
+              complete catalog below.
+            </p>
+          </div>
+
+          <div class="tabs" data-tabs>
+            <div role="tablist" aria-label="Token categories" class="tabs__list">
+              <button
+                role="tab"
+                aria-selected="true"
+                aria-controls="tab-colors"
+                id="tab-btn-colors"
+                class="tabs__btn tabs__btn--active"
+              >
+                <span aria-hidden="true" data-icon="palette" class="tabs__btn-icon"></span>
+                Colors
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-typography"
+                id="tab-btn-typography"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="type" class="tabs__btn-icon"></span>
+                Typography
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-spacing"
+                id="tab-btn-spacing"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="ruler" class="tabs__btn-icon"></span>
+                Spacing
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-shadows"
+                id="tab-btn-shadows"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="layers" class="tabs__btn-icon"></span>
+                Shadows
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-radii"
+                id="tab-btn-radii"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="circle" class="tabs__btn-icon"></span>
+                Radii
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-motion"
+                id="tab-btn-motion"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="activity" class="tabs__btn-icon"></span>
+                Motion
+              </button>
+            </div>
+
+            <!-- Colors -->
+            <div
+              role="tabpanel"
+              id="tab-colors"
+              aria-labelledby="tab-btn-colors"
+              class="tabs__panel"
+            >
+              <div id="gallery-colors" class="gallery__colors"></div>
+            </div>
+
+            <!-- Typography -->
+            <div
+              role="tabpanel"
+              id="tab-typography"
+              aria-labelledby="tab-btn-typography"
+              class="tabs__panel"
+              hidden
+            >
+              <div id="gallery-typography" class="gallery__typography"></div>
+            </div>
+
+            <!-- Spacing -->
+            <div
+              role="tabpanel"
+              id="tab-spacing"
+              aria-labelledby="tab-btn-spacing"
+              class="tabs__panel"
+              hidden
+            >
+              <div id="gallery-spacing" class="gallery__spacing"></div>
+            </div>
+
+            <!-- Shadows -->
+            <div
+              role="tabpanel"
+              id="tab-shadows"
+              aria-labelledby="tab-btn-shadows"
+              class="tabs__panel"
+              hidden
+            >
+              <div id="gallery-shadows" class="gallery__shadows"></div>
+            </div>
+
+            <!-- Radii -->
+            <div
+              role="tabpanel"
+              id="tab-radii"
+              aria-labelledby="tab-btn-radii"
+              class="tabs__panel"
+              hidden
+            >
+              <div id="gallery-radii" class="gallery__radii"></div>
+            </div>
+
+            <!-- Motion -->
+            <div
+              role="tabpanel"
+              id="tab-motion"
+              aria-labelledby="tab-btn-motion"
+              class="tabs__panel"
+              hidden
+            >
+              <div id="gallery-motion" class="gallery__motion"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Code Output ───────────────────────────────────────── -->
+      <section id="output" class="code-output" aria-labelledby="output-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="output-heading" class="section-heading">Generated Output</h2>
+            <p class="section-subheading">
+              These artifacts are produced by running <code>npm run build:tokens</code>. They
+              are never hand-authored — only the source token JSON files are edited.
+            </p>
+          </div>
+
+          <div class="tabs" data-tabs>
+            <div role="tablist" aria-label="Output file format" class="tabs__list">
+              <button
+                role="tab"
+                aria-selected="true"
+                aria-controls="output-tab-css"
+                id="output-tab-btn-css"
+                class="tabs__btn tabs__btn--active"
+              >
+                <span aria-hidden="true" data-icon="file-code" class="tabs__btn-icon"></span>
+                tokens.css
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="output-tab-js"
+                id="output-tab-btn-js"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="file-code-2" class="tabs__btn-icon"></span>
+                tokens.js
+              </button>
+              <button
+                role="tab"
+                aria-selected="false"
+                aria-controls="output-tab-dts"
+                id="output-tab-btn-dts"
+                class="tabs__btn"
+                tabindex="-1"
+              >
+                <span aria-hidden="true" data-icon="file-type" class="tabs__btn-icon"></span>
+                tokens.d.ts
+              </button>
+            </div>
+
+            <div
+              role="tabpanel"
+              id="output-tab-css"
+              aria-labelledby="output-tab-btn-css"
+              class="tabs__panel output-panel"
+            >
+              <div class="output-panel__toolbar">
+                <span class="output-panel__filename">dist/tokens.css</span>
+                <button
+                  class="copy-btn"
+                  data-copy-target="output-css-code"
+                  aria-label="Copy tokens.css to clipboard"
+                >
+                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                  <span class="copy-btn__label">Copy</span>
+                </button>
+              </div>
+              <pre class="code-block"><code id="output-css-code" class="language-css"></code></pre>
+            </div>
+
+            <div
+              role="tabpanel"
+              id="output-tab-js"
+              aria-labelledby="output-tab-btn-js"
+              class="tabs__panel output-panel"
+              hidden
+            >
+              <div class="output-panel__toolbar">
+                <span class="output-panel__filename">dist/tokens.js</span>
+                <button
+                  class="copy-btn"
+                  data-copy-target="output-js-code"
+                  aria-label="Copy tokens.js to clipboard"
+                >
+                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                  <span class="copy-btn__label">Copy</span>
+                </button>
+              </div>
+              <pre class="code-block"><code id="output-js-code" class="language-js"></code></pre>
+            </div>
+
+            <div
+              role="tabpanel"
+              id="output-tab-dts"
+              aria-labelledby="output-tab-btn-dts"
+              class="tabs__panel output-panel"
+              hidden
+            >
+              <div class="output-panel__toolbar">
+                <span class="output-panel__filename">dist/tokens.d.ts</span>
+                <button
+                  class="copy-btn"
+                  data-copy-target="output-dts-code"
+                  aria-label="Copy tokens.d.ts to clipboard"
+                >
+                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                  <span class="copy-btn__label">Copy</span>
+                </button>
+              </div>
+              <pre class="code-block"><code id="output-dts-code" class="language-ts"></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Usage ─────────────────────────────────────────────── -->
+      <section id="usage" class="usage" aria-labelledby="usage-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="usage-heading" class="section-heading">How to Use</h2>
+            <p class="section-subheading">
+              Integrate the generated tokens into any project in three steps.
+            </p>
+          </div>
+
+          <ol class="usage__steps">
+            <li class="usage__step">
+              <div class="usage__step-number" aria-hidden="true">01</div>
+              <div class="usage__step-content">
+                <h3 class="usage__step-title">Install &amp; Build</h3>
+                <p class="usage__step-desc">
+                  Clone the repository and run the token build script to generate the output
+                  artifacts.
+                </p>
+                <div class="usage__code-wrapper">
+                  <button
+                    class="copy-btn copy-btn--inline"
+                    data-copy-target="usage-code-1"
+                    aria-label="Copy install commands"
+                  >
+                    <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                    <span class="copy-btn__label">Copy</span>
+                  </button>
+                  <pre class="code-block code-block--shell"><code id="usage-code-1">npm install
+npm run build:tokens</code></pre>
+                </div>
+              </div>
+            </li>
+
+            <li class="usage__step">
+              <div class="usage__step-number" aria-hidden="true">02</div>
+              <div class="usage__step-content">
+                <h3 class="usage__step-title">Import CSS Tokens</h3>
+                <p class="usage__step-desc">
+                  Add the generated stylesheet to your project. All tokens are available as CSS
+                  custom properties on <code>:root</code>.
+                </p>
+                <div class="usage__code-wrapper">
+                  <button
+                    class="copy-btn copy-btn--inline"
+                    data-copy-target="usage-code-2"
+                    aria-label="Copy CSS import"
+                  >
+                    <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                    <span class="copy-btn__label">Copy</span>
+                  </button>
+                  <pre class="code-block code-block--css"><code id="usage-code-2">@import "./dist/tokens.css";
+
+.my-button {
+  background-color: var(--token-color-orange-500);
+  border-radius: var(--token-border-radius-md);
+  padding-block: var(--token-spacing-2);
+  padding-inline: var(--token-spacing-4);
+  transition-duration: var(--token-motion-duration-base);
+}</code></pre>
+                </div>
+              </div>
+            </li>
+
+            <li class="usage__step">
+              <div class="usage__step-number" aria-hidden="true">03</div>
+              <div class="usage__step-content">
+                <h3 class="usage__step-title">Import JS Tokens</h3>
+                <p class="usage__step-desc">
+                  Use the typed JavaScript exports for design-system tooling, tests, or
+                  JavaScript-driven styling.
+                </p>
+                <div class="usage__code-wrapper">
+                  <button
+                    class="copy-btn copy-btn--inline"
+                    data-copy-target="usage-code-3"
+                    aria-label="Copy JS import"
+                  >
+                    <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                    <span class="copy-btn__label">Copy</span>
+                  </button>
+                  <pre class="code-block code-block--js"><code id="usage-code-3">import {
+  tokenColorOrange500,
+  tokenMotionDurationBase,
+  tokenSpacing4,
+} from "./dist/tokens.js";
+
+// Use in component logic, tests, or animation libraries
+element.animate(
+  [{ opacity: 0 }, { opacity: 1 }],
+  { duration: parseInt(tokenMotionDurationBase) }
+);</code></pre>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="site-footer__inner">
+          <p class="site-footer__stack">
+            Built with
+            <a
+              href="https://styledictionary.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+              >Style Dictionary v4</a
+            >
+            ·
+            <a
+              href="https://www.w3.org/community/design-tokens/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+              >W3C DTCG</a
+            >
+            ·
+            <a
+              href="https://vitejs.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+              >Vite</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

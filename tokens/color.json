@@ -1,0 +1,31 @@
+{
+  "color": {
+    "background": {
+      "base": { "$type": "color", "$value": "#12100e" },
+      "elevated": { "$type": "color", "$value": "#2a2520" },
+      "surface": { "$type": "color", "$value": "#1e1b17" }
+    },
+    "border": {
+      "default": { "$type": "color", "$value": "#3a3530" },
+      "subtle": { "$type": "color", "$value": "#2a2520" }
+    },
+    "orange": {
+      "300": { "$type": "color", "$value": "#fdba74" },
+      "400": { "$type": "color", "$value": "#fb923c" },
+      "500": { "$type": "color", "$value": "#f97316" },
+      "600": { "$type": "color", "$value": "#ea6c0a" },
+      "700": { "$type": "color", "$value": "#c2510a" }
+    },
+    "sky": {
+      "300": { "$type": "color", "$value": "#7dd3fc" },
+      "400": { "$type": "color", "$value": "#38bdf8" },
+      "500": { "$type": "color", "$value": "#0ea5e9" },
+      "600": { "$type": "color", "$value": "#28a8e0" }
+    },
+    "text": {
+      "muted": { "$type": "color", "$value": "#a09585" },
+      "primary": { "$type": "color", "$value": "#f5f0ea" },
+      "secondary": { "$type": "color", "$value": "#cfc5b8" }
+    }
+  }
+}

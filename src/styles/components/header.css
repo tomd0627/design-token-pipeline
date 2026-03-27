@@ -1,0 +1,174 @@
+@layer components {
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 100;
+    background-color: color-mix(in srgb, var(--token-color-background-base) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-block-end: 1px solid var(--token-color-border-subtle);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--token-spacing-6);
+    block-size: 4rem;
+  }
+
+  .site-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--token-spacing-2);
+    font-weight: var(--token-font-weight-semibold);
+    font-size: var(--token-font-size-base);
+    color: var(--token-color-text-primary);
+    text-decoration: none;
+    transition: color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .site-logo:hover {
+    color: var(--token-color-orange-400);
+  }
+
+  .site-logo__icon {
+    display: flex;
+    align-items: center;
+    color: var(--token-color-orange-500);
+  }
+
+  .site-logo__icon svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--token-spacing-1);
+    list-style: none;
+  }
+
+  .nav-link {
+    display: inline-block;
+    padding-block: var(--token-spacing-1);
+    padding-inline: var(--token-spacing-3);
+    color: var(--token-color-text-muted);
+    font-size: var(--token-font-size-sm);
+    font-weight: var(--token-font-weight-medium);
+    border-radius: var(--token-border-radius-md);
+    transition:
+      color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      background-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .nav-link:hover {
+    color: var(--token-color-text-primary);
+    background-color: var(--token-color-background-surface);
+  }
+
+  .nav-link--active {
+    color: var(--token-color-orange-400);
+  }
+
+  .nav-link--active:hover {
+    color: var(--token-color-orange-300);
+  }
+
+  /* ── Hamburger toggle ──────────────────────────────────────────────── */
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: var(--token-spacing-2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--token-border-radius-md);
+    color: var(--token-color-text-primary);
+    transition: background-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .nav-toggle:hover {
+    background-color: var(--token-color-background-surface);
+  }
+
+  .nav-toggle__bar {
+    display: block;
+    inline-size: 1.25rem;
+    block-size: 2px;
+    background-color: currentcolor;
+    border-radius: 2px;
+    transition:
+      transform var(--token-motion-duration-base) var(--token-motion-easing-ease-out),
+      opacity var(--token-motion-duration-base) var(--token-motion-easing-ease-out);
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Responsive breakpoints ───────────────────────────────────────── */
+
+  @media (width <= 39.9375rem) {
+    #site-nav {
+      display: none;
+    }
+
+    #site-nav.is-open {
+      display: block;
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline: 0;
+      background-color: var(--token-color-background-base);
+      border-block-end: 1px solid var(--token-color-border-subtle);
+      padding-block: var(--token-spacing-3);
+      padding-inline: var(--token-spacing-6);
+      box-shadow: var(--token-shadow-lg);
+      animation: mobile-nav-in var(--token-motion-duration-base) var(--token-motion-easing-ease-out);
+    }
+
+    @keyframes mobile-nav-in {
+      from {
+        opacity: 0;
+        transform: translateY(-0.25rem);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #site-nav .nav-list {
+      flex-direction: column;
+      gap: var(--token-spacing-1);
+    }
+
+    #site-nav .nav-link {
+      display: block;
+      padding-block: var(--token-spacing-2);
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .nav-toggle {
+      display: none;
+    }
+  }
+}

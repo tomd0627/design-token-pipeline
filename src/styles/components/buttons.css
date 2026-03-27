@@ -1,0 +1,91 @@
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--token-spacing-2);
+    padding-block: var(--token-spacing-3);
+    padding-inline: var(--token-spacing-5);
+    border-radius: var(--token-border-radius-lg);
+    font-size: var(--token-font-size-sm);
+    font-weight: var(--token-font-weight-semibold);
+    line-height: var(--token-font-line-height-none);
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition:
+      background-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      border-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      box-shadow var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .btn__icon svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .btn--primary {
+    background-color: var(--token-color-orange-500);
+    color: var(--token-color-background-base);
+    border-color: var(--token-color-orange-500);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--token-color-orange-600);
+    border-color: var(--token-color-orange-600);
+    box-shadow: var(--token-shadow-glow-orange);
+  }
+
+  .btn--ghost {
+    background-color: transparent;
+    color: var(--token-color-text-secondary);
+    border-color: var(--token-color-border-default);
+  }
+
+  .btn--ghost:hover {
+    background-color: var(--token-color-background-surface);
+    color: var(--token-color-text-primary);
+    border-color: var(--token-color-border-default);
+  }
+
+  /* Copy button */
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--token-spacing-1);
+    padding-block: var(--token-spacing-1);
+    padding-inline: var(--token-spacing-3);
+    background-color: var(--token-color-background-elevated);
+    color: var(--token-color-text-muted);
+    border: 1px solid var(--token-color-border-default);
+    border-radius: var(--token-border-radius-md);
+    font-size: var(--token-font-size-xs);
+    font-weight: var(--token-font-weight-medium);
+    cursor: pointer;
+    transition:
+      background-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .copy-btn:hover {
+    background-color: var(--token-color-background-surface);
+    color: var(--token-color-text-primary);
+  }
+
+  .copy-btn--copied {
+    color: var(--token-color-sky-400);
+    border-color: color-mix(in srgb, var(--token-color-sky-400) 30%, transparent);
+  }
+
+  .copy-btn__icon svg {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+  }
+
+  .copy-btn--inline {
+    position: absolute;
+    inset-block-start: var(--token-spacing-3);
+    inset-inline-end: var(--token-spacing-3);
+    z-index: 1;
+  }
+}
