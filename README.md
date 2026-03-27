@@ -2,8 +2,6 @@
 
 A production-grade design token pipeline that transforms structured token definitions into platform-ready CSS custom properties and typed JavaScript exports — the same workflow that powers enterprise design systems at scale.
 
-**Live demo:** [tomdeluca-tokens.netlify.app](https://tomdeluca-tokens.netlify.app)
-
 ---
 
 ## What This Is
@@ -55,6 +53,7 @@ Supported token types: `color`, `dimension`, `fontFamily`, `fontWeight`, `durati
 ### Output
 
 **`dist/tokens.css`** — CSS custom properties on `:root`
+
 ```css
 :root {
   --token-color-orange-500: #f97316;
@@ -65,12 +64,14 @@ Supported token types: `color`, `dimension`, `fontFamily`, `fontWeight`, `durati
 ```
 
 **`dist/tokens.js`** — ES module named exports
+
 ```js
 export const tokenColorOrange500 = "#f97316";
 export const tokenSpacing4 = "1rem";
 ```
 
 **`dist/tokens.d.ts`** — TypeScript declarations
+
 ```ts
 export declare const tokenColorOrange500: string;
 export declare const tokenSpacing4: string;
@@ -120,16 +121,16 @@ npm run build
 
 ## Scripts
 
-| Script | Description |
-|--------|-------------|
+| Script                 | Description                                   |
+| ---------------------- | --------------------------------------------- |
 | `npm run build:tokens` | Run Style Dictionary to generate token output |
-| `npm run dev` | Build tokens + start Vite dev server |
-| `npm run build` | Build tokens + Vite production build |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run Stylelint + ESLint |
-| `npm run lint:css` | Stylelint only |
-| `npm run lint:js` | ESLint only |
-| `npm run format` | Format all files with Prettier |
+| `npm run dev`          | Build tokens + start Vite dev server          |
+| `npm run build`        | Build tokens + Vite production build          |
+| `npm run preview`      | Preview the production build locally          |
+| `npm run lint`         | Run Stylelint + ESLint                        |
+| `npm run lint:css`     | Stylelint only                                |
+| `npm run lint:js`      | ESLint only                                   |
+| `npm run format`       | Format all files with Prettier                |
 
 ---
 
@@ -209,17 +210,17 @@ scss: {
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Token transformation | [Style Dictionary v4](https://styledictionary.com) |
-| DTCG format support | [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms) |
-| Token spec | [W3C DTCG](https://www.w3.org/community/design-tokens/) |
-| Build tool | [Vite 5](https://vitejs.dev) |
-| Language | TypeScript (strict) |
-| Icons | [Lucide](https://lucide.dev) |
-| Font | [Inter](https://rsms.me/inter/) via @fontsource |
-| Linting | ESLint (flat config) + Stylelint |
-| Formatting | Prettier |
+| Layer                | Technology                                                                     |
+| -------------------- | ------------------------------------------------------------------------------ |
+| Token transformation | [Style Dictionary v4](https://styledictionary.com)                             |
+| DTCG format support  | [@tokens-studio/sd-transforms](https://github.com/tokens-studio/sd-transforms) |
+| Token spec           | [W3C DTCG](https://www.w3.org/community/design-tokens/)                        |
+| Build tool           | [Vite 5](https://vitejs.dev)                                                   |
+| Language             | TypeScript (strict)                                                            |
+| Icons                | [Lucide](https://lucide.dev)                                                   |
+| Font                 | [Inter](https://rsms.me/inter/) via @fontsource                                |
+| Linting              | ESLint (flat config) + Stylelint                                               |
+| Formatting           | Prettier                                                                       |
 
 ---
 
