@@ -28,7 +28,7 @@
     font-size: var(--token-font-size-3xl);
     font-weight: var(--token-font-weight-bold);
     line-height: var(--token-font-line-height-none);
-    color: color-mix(in srgb, var(--token-color-orange-500) 25%, transparent);
+    color: color-mix(in srgb, var(--token-color-orange-500) 65%, transparent);
     letter-spacing: var(--token-font-letter-spacing-tight);
     font-variant-numeric: tabular-nums;
     padding-block-start: var(--token-spacing-1);
