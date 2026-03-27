@@ -11,10 +11,35 @@ function buildTokensPlugin() {
   };
 }
 
+function fontPreloadPlugin() {
+  return {
+    name: "font-preload",
+    transformIndexHtml: {
+      order: "post" as const,
+      handler(_html: string, ctx: { bundle?: Record<string, unknown> }) {
+        if (!ctx.bundle) return [];
+        return Object.keys(ctx.bundle)
+          .filter((name) => /inter-latin-\d{3}-normal.*\.woff2$/.test(name))
+          .map((name) => ({
+            tag: "link",
+            attrs: {
+              rel: "preload",
+              href: `/${name}`,
+              as: "font",
+              type: "font/woff2",
+              crossorigin: "",
+            },
+            injectTo: "head" as const,
+          }));
+      },
+    },
+  };
+}
+
 export default defineConfig({
   root: "src",
   publicDir: path.resolve("public"),
-  plugins: [buildTokensPlugin()],
+  plugins: [buildTokensPlugin(), fontPreloadPlugin()],
   resolve: {
     alias: {
       "@tokens": path.resolve("dist/tokens.css"),
