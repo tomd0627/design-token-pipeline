@@ -14,7 +14,7 @@ tokens/*.json  →  Style Dictionary  →  dist/tokens.css
                                     →  dist/tokens.d.ts
 ```
 
-The demo site itself is styled exclusively using the generated token output — making it a live, self-documenting artifact.
+The demo site itself is styled exclusively using the generated token output — making it a live, self-documenting artifact. It also includes an interactive **Try It Live** editor: paste or edit any W3C DTCG token JSON and watch the CSS, JavaScript, and TypeScript output update instantly in the browser, with no build step required. Each generated output file can be downloaded directly from the site.
 
 ---
 
@@ -158,7 +158,10 @@ design-token-pipeline/
 │   │   └── components/
 │   └── components/
 │       ├── tabs.ts                   ← Accessible tab component
-│       └── copy-button.ts            ← Clipboard copy utility
+│       ├── copy-button.ts            ← Clipboard copy utility
+│       ├── download-button.ts        ← File download utility
+│       ├── token-transformer.ts      ← In-browser CSS/JS/TS transform (mirrors Style Dictionary)
+│       └── live-editor.ts            ← Try It Live editor wiring
 ├── public/
 │   └── favicon.svg
 └── dist/                             ← Generated (gitignored, built at deploy time)

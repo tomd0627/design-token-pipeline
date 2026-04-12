@@ -24,6 +24,8 @@ import tokensDtsRaw from "../dist/tokens.d.ts?raw";
 import tokensJsRaw from "../dist/tokens.js?raw";
 
 import { initCopyButtons } from "./components/copy-button";
+import { initDownloadButtons } from "./components/download-button";
+import { initLiveEditor } from "./components/live-editor";
 import { initTabs } from "./components/tabs";
 
 // ─── Icon utilities ──────────────────────────────────────────────────────────
@@ -514,7 +516,7 @@ function initMobileNav(): void {
 // ─── Nav scroll highlighting ─────────────────────────────────────────────────
 
 function initScrollHighlight(): void {
-  const sectionIds = ["pipeline", "gallery", "output", "usage"];
+  const sectionIds = ["pipeline", "try-it", "gallery", "output", "usage"];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter((el): el is HTMLElement => el !== null);
@@ -558,6 +560,8 @@ function init(): void {
   injectIcons();
   initTabs();
   initCopyButtons();
+  initDownloadButtons();
+  initLiveEditor();
   renderColors();
   renderTypography();
   renderSpacing();

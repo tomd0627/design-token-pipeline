@@ -21,6 +21,12 @@
     border-radius: var(--token-border-radius-xl) var(--token-border-radius-xl) 0 0;
   }
 
+  .output-panel__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--token-spacing-2);
+  }
+
   .output-panel__filename {
     font-family: var(--token-font-family-mono);
     font-size: var(--token-font-size-xs);

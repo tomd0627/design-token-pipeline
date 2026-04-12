@@ -6,6 +6,7 @@
 @import "./components/pipeline.css";
 @import "./components/gallery.css";
 @import "./components/code-output.css";
+@import "./components/live-editor.css";
 @import "./components/usage.css";
 @import "./components/footer.css";
 @import "./components/tabs.css";

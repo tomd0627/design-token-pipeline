@@ -88,4 +88,38 @@
     inset-inline-end: var(--token-spacing-3);
     z-index: 1;
   }
+
+  /* Download button — same shape as copy-btn */
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--token-spacing-1);
+    padding-block: var(--token-spacing-1);
+    padding-inline: var(--token-spacing-3);
+    background-color: var(--token-color-background-elevated);
+    color: var(--token-color-text-muted);
+    border: 1px solid var(--token-color-border-default);
+    border-radius: var(--token-border-radius-md);
+    font-size: var(--token-font-size-xs);
+    font-weight: var(--token-font-weight-medium);
+    cursor: pointer;
+    transition:
+      background-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .download-btn:hover {
+    background-color: var(--token-color-background-surface);
+    color: var(--token-color-text-primary);
+  }
+
+  .download-btn--done {
+    color: var(--token-color-orange-500);
+    border-color: color-mix(in srgb, var(--token-color-orange-500) 30%, transparent);
+  }
+
+  .download-btn__icon svg {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+  }
 }

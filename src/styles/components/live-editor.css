@@ -1,0 +1,157 @@
+@layer components {
+  .live-editor {
+    padding-block: var(--token-spacing-24);
+    background-color: var(--token-color-background-base);
+    border-block: 1px solid var(--token-color-border-subtle);
+  }
+
+  /* ── Two-column layout ───────────────────────────────────────────────────── */
+
+  .live-editor__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--token-spacing-6);
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .live-editor__body {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Input pane ──────────────────────────────────────────────────────────── */
+
+  .live-editor__input-pane {
+    display: flex;
+    flex-direction: column;
+    gap: var(--token-spacing-3);
+  }
+
+  .live-editor__input-label {
+    font-size: var(--token-font-size-xs);
+    font-weight: var(--token-font-weight-medium);
+    color: var(--token-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .live-editor__textarea {
+    width: 100%;
+    min-block-size: 22rem;
+    padding: var(--token-spacing-4);
+    background-color: var(--token-color-background-surface);
+    color: var(--token-color-text-secondary);
+    border: 1px solid var(--token-color-border-default);
+    border-radius: var(--token-border-radius-xl);
+    font-family: var(--token-font-family-mono);
+    font-size: var(--token-font-size-sm);
+    line-height: var(--token-font-line-height-relaxed);
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .live-editor__textarea:focus {
+    border-color: var(--token-color-orange-500);
+  }
+
+  .live-editor__error {
+    font-family: var(--token-font-family-mono);
+    font-size: var(--token-font-size-xs);
+    color: #f87171; /* red-400 — deliberate hardcode, not a design token */
+    padding-block: var(--token-spacing-2);
+    padding-inline: var(--token-spacing-3);
+    background-color: color-mix(in srgb, #f87171 8%, transparent);
+    border: 1px solid color-mix(in srgb, #f87171 25%, transparent);
+    border-radius: var(--token-border-radius-md);
+  }
+
+  .live-editor__reset {
+    align-self: flex-start;
+  }
+
+  /* ── Output pane ─────────────────────────────────────────────────────────── */
+
+  .live-editor__output-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Tab bar */
+  .editor-tabs {
+    display: flex;
+    gap: 0;
+    border-block-end: none;
+  }
+
+  .editor-tabs__btn {
+    flex: 1;
+    padding-block: var(--token-spacing-3);
+    padding-inline: var(--token-spacing-4);
+    background-color: var(--token-color-background-elevated);
+    color: var(--token-color-text-muted);
+    border: 1px solid var(--token-color-border-default);
+    border-inline-end: none;
+    font-family: var(--token-font-family-mono);
+    font-size: var(--token-font-size-xs);
+    font-weight: var(--token-font-weight-medium);
+    cursor: pointer;
+    transition:
+      background-color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out),
+      color var(--token-motion-duration-fast) var(--token-motion-easing-ease-out);
+  }
+
+  .editor-tabs__btn:first-child {
+    border-radius: var(--token-border-radius-xl) 0 0 0;
+  }
+
+  .editor-tabs__btn:last-child {
+    border-inline-end: 1px solid var(--token-color-border-default);
+    border-radius: 0 var(--token-border-radius-xl) 0 0;
+  }
+
+  .editor-tabs__btn:hover {
+    background-color: var(--token-color-background-surface);
+    color: var(--token-color-text-primary);
+  }
+
+  .editor-tabs__btn--active {
+    background-color: var(--token-color-background-base);
+    color: var(--token-color-text-primary);
+    border-block-end: 1px solid var(--token-color-background-base);
+  }
+
+  /* Output toolbar (filename + copy) */
+  .live-editor__output-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-block: var(--token-spacing-2);
+    padding-inline: var(--token-spacing-4);
+    background-color: var(--token-color-background-elevated);
+    border-inline: 1px solid var(--token-color-border-default);
+    border-block-end: 1px solid var(--token-color-border-default);
+  }
+
+  /* Output code block */
+  .live-editor__code-block {
+    background-color: var(--token-color-background-base);
+    border: 1px solid var(--token-color-border-default);
+    border-block-start: none;
+    border-radius: 0 0 var(--token-border-radius-xl) var(--token-border-radius-xl);
+    padding: var(--token-spacing-5);
+    overflow: auto;
+    min-block-size: 16rem;
+    max-block-size: 22rem;
+    font-family: var(--token-font-family-mono);
+    font-size: var(--token-font-size-sm);
+    line-height: var(--token-font-line-height-relaxed);
+    color: var(--token-color-text-secondary);
+    white-space: pre;
+    scrollbar-width: thin;
+    scrollbar-color: var(--token-color-border-default) transparent;
+  }
+}

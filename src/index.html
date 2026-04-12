@@ -24,6 +24,7 @@
           <nav id="site-nav" aria-label="Page sections">
             <ul class="nav-list" role="list">
               <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
+              <li><a href="#try-it" class="nav-link">Try It</a></li>
               <li><a href="#gallery" class="nav-link">Tokens</a></li>
               <li><a href="#output" class="nav-link">Output</a></li>
               <li><a href="#usage" class="nav-link">Usage</a></li>
@@ -204,6 +205,92 @@
               </div>
             </li>
           </ol>
+        </div>
+      </section>
+
+      <!-- ─── Try It Live ──────────────────────────────────────── -->
+      <section id="try-it" class="live-editor" aria-labelledby="try-it-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="try-it-heading" class="section-heading">Try It Live</h2>
+            <p class="section-subheading">
+              Edit the token JSON and watch the CSS, JavaScript, and TypeScript output update
+              instantly — no build step required.
+            </p>
+          </div>
+
+          <div class="live-editor__body">
+            <!-- Input pane -->
+            <div class="live-editor__input-pane">
+              <label for="live-editor__input" class="live-editor__input-label">
+                Token JSON
+              </label>
+              <textarea
+                id="live-editor__input"
+                class="live-editor__textarea"
+                spellcheck="false"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                aria-label="Token JSON editor"
+                aria-describedby="live-editor__error"
+              ></textarea>
+              <p id="live-editor__error" class="live-editor__error" hidden aria-live="polite"></p>
+              <button
+                type="button"
+                id="live-editor__reset"
+                class="btn btn--ghost live-editor__reset"
+                aria-label="Reset token JSON to defaults"
+              >
+                Reset to defaults
+              </button>
+            </div>
+
+            <!-- Output pane -->
+            <div class="live-editor__output-pane">
+              <div class="editor-tabs" role="tablist" aria-label="Output format">
+                <button
+                  type="button"
+                  class="editor-tabs__btn editor-tabs__btn--active"
+                  role="tab"
+                  aria-selected="true"
+                  data-editor-tab="css"
+                >
+                  tokens.css
+                </button>
+                <button
+                  type="button"
+                  class="editor-tabs__btn"
+                  role="tab"
+                  aria-selected="false"
+                  data-editor-tab="js"
+                >
+                  tokens.js
+                </button>
+                <button
+                  type="button"
+                  class="editor-tabs__btn"
+                  role="tab"
+                  aria-selected="false"
+                  data-editor-tab="ts"
+                >
+                  tokens.d.ts
+                </button>
+              </div>
+              <div class="live-editor__output-toolbar">
+                <button
+                  type="button"
+                  id="live-editor__copy"
+                  class="copy-btn"
+                  aria-label="Copy output to clipboard"
+                >
+                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                  <span class="copy-btn__label">Copy</span>
+                </button>
+              </div>
+              <pre class="live-editor__code-block"><code id="live-editor__output-code"></code></pre>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -410,14 +497,27 @@
             >
               <div class="output-panel__toolbar">
                 <span class="output-panel__filename">dist/tokens.css</span>
-                <button
-                  class="copy-btn"
-                  data-copy-target="output-css-code"
-                  aria-label="Copy tokens.css to clipboard"
-                >
-                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
-                  <span class="copy-btn__label">Copy</span>
-                </button>
+                <div class="output-panel__actions">
+                  <button
+                    type="button"
+                    class="download-btn"
+                    data-download-target="output-css-code"
+                    data-download-filename="tokens.css"
+                    aria-label="Download tokens.css"
+                  >
+                    <span aria-hidden="true" data-icon="arrow-down" class="download-btn__icon"></span>
+                    <span class="download-btn__label">Download</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="copy-btn"
+                    data-copy-target="output-css-code"
+                    aria-label="Copy tokens.css to clipboard"
+                  >
+                    <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                    <span class="copy-btn__label">Copy</span>
+                  </button>
+                </div>
               </div>
               <pre class="code-block"><code id="output-css-code" class="language-css"></code></pre>
             </div>
@@ -431,14 +531,27 @@
             >
               <div class="output-panel__toolbar">
                 <span class="output-panel__filename">dist/tokens.js</span>
-                <button
-                  class="copy-btn"
-                  data-copy-target="output-js-code"
-                  aria-label="Copy tokens.js to clipboard"
-                >
-                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
-                  <span class="copy-btn__label">Copy</span>
-                </button>
+                <div class="output-panel__actions">
+                  <button
+                    type="button"
+                    class="download-btn"
+                    data-download-target="output-js-code"
+                    data-download-filename="tokens.js"
+                    aria-label="Download tokens.js"
+                  >
+                    <span aria-hidden="true" data-icon="arrow-down" class="download-btn__icon"></span>
+                    <span class="download-btn__label">Download</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="copy-btn"
+                    data-copy-target="output-js-code"
+                    aria-label="Copy tokens.js to clipboard"
+                  >
+                    <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                    <span class="copy-btn__label">Copy</span>
+                  </button>
+                </div>
               </div>
               <pre class="code-block"><code id="output-js-code" class="language-js"></code></pre>
             </div>
@@ -452,14 +565,27 @@
             >
               <div class="output-panel__toolbar">
                 <span class="output-panel__filename">dist/tokens.d.ts</span>
-                <button
-                  class="copy-btn"
-                  data-copy-target="output-dts-code"
-                  aria-label="Copy tokens.d.ts to clipboard"
-                >
-                  <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
-                  <span class="copy-btn__label">Copy</span>
-                </button>
+                <div class="output-panel__actions">
+                  <button
+                    type="button"
+                    class="download-btn"
+                    data-download-target="output-dts-code"
+                    data-download-filename="tokens.d.ts"
+                    aria-label="Download tokens.d.ts"
+                  >
+                    <span aria-hidden="true" data-icon="arrow-down" class="download-btn__icon"></span>
+                    <span class="download-btn__label">Download</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="copy-btn"
+                    data-copy-target="output-dts-code"
+                    aria-label="Copy tokens.d.ts to clipboard"
+                  >
+                    <span aria-hidden="true" data-icon="copy" class="copy-btn__icon"></span>
+                    <span class="copy-btn__label">Copy</span>
+                  </button>
+                </div>
               </div>
               <pre class="code-block"><code id="output-dts-code" class="language-ts"></code></pre>
             </div>
