@@ -8,7 +8,7 @@ import {
   FileCode2,
   FileJson,
   FileType,
-  Github,
+  GitBranch,
   type IconNode,
   Layers,
   Package2,
@@ -31,11 +31,16 @@ import { initTabs } from "./components/tabs";
 // ─── Icon utilities ──────────────────────────────────────────────────────────
 
 function iconToSvg(icon: IconNode, size = 16): string {
-  const [, baseAttrs, children] = icon;
   const attrs: Record<string, string | number> = {
-    ...baseAttrs,
+    xmlns: "http://www.w3.org/2000/svg",
     width: size,
     height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
     "aria-hidden": "true",
     focusable: "false",
   };
@@ -44,7 +49,7 @@ function iconToSvg(icon: IconNode, size = 16): string {
     .map(([k, v]) => `${k}="${v}"`)
     .join(" ");
 
-  const childStr = (children as Array<[string, Record<string, string>]>)
+  const childStr = icon
     .map(([tag, childAttrs]) => {
       const cAttrStr = Object.entries(childAttrs)
         .map(([k, v]) => `${k}="${v}"`)
@@ -67,7 +72,7 @@ const iconMap: Record<string, IconNode> = {
   "file-json": FileJson,
   "file-type": FileType,
   figma: FileJson, // closest available icon for Figma
-  github: Github,
+  github: GitBranch,
   layers: Layers,
   "package-2": Package2,
   palette: Palette,

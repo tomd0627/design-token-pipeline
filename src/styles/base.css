@@ -63,13 +63,13 @@
     padding-inline: var(--token-spacing-6);
   }
 
-  @media (min-width: 40rem) {
+  @media (width >= 40rem) {
     .container {
       padding-inline: var(--token-spacing-8);
     }
   }
 
-  @media (min-width: 64rem) {
+  @media (width >= 64rem) {
     .container {
       padding-inline: var(--token-spacing-12);
     }
@@ -89,7 +89,7 @@
     letter-spacing: var(--token-font-letter-spacing-tight);
   }
 
-  @media (min-width: 64rem) {
+  @media (width >= 64rem) {
     .section-heading {
       font-size: var(--token-font-size-4xl);
     }
@@ -109,7 +109,6 @@
       var(--token-color-sky-400) 100%
     );
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 

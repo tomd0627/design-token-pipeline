@@ -40,7 +40,7 @@
     block-size: 3.5rem;
     border-radius: var(--token-border-radius-lg);
     background-color: var(--swatch-color);
-    border: 1px solid color-mix(in srgb, var(--swatch-color) 80%, white 20%);
+    border: 1px solid color-mix(in srgb, var(--swatch-color) 80%, #fff 20%);
   }
 
   .color-swatch__name {
@@ -248,7 +248,7 @@
     align-items: center;
   }
 
-  @media (max-width: 39.9375rem) {
+  @media (width <= 39.9375rem) {
     .motion-item {
       grid-template-columns: 1fr;
     }

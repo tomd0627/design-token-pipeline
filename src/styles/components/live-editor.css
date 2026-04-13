@@ -14,7 +14,7 @@
     align-items: start;
   }
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .live-editor__body {
       grid-template-columns: 1fr;
     }

@@ -5,7 +5,7 @@
     position: relative;
   }
 
-  @media (min-width: 64rem) {
+  @media (width >= 64rem) {
     .hero {
       padding-block: var(--token-spacing-24) var(--token-spacing-32);
     }
@@ -17,7 +17,7 @@
     align-items: center;
   }
 
-  @media (min-width: 64rem) {
+  @media (width >= 64rem) {
     .hero__inner {
       grid-template-columns: 1fr 1fr;
       gap: var(--token-spacing-12);
