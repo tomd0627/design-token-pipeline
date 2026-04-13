@@ -12,7 +12,7 @@
     counter-reset: pipeline-step;
   }
 
-  @media (min-width: 64rem) {
+  @media (width >= 64rem) {
     .pipeline__steps {
       grid-template-columns: 1fr auto 1fr auto 1fr;
       align-items: stretch;
@@ -44,7 +44,7 @@
     justify-content: center;
   }
 
-  @media (max-width: 63.9375rem) {
+  @media (width <= 63.9375rem) {
     .pipeline__step--connector {
       display: none;
     }

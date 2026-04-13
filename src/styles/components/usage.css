@@ -17,7 +17,7 @@
     align-items: start;
   }
 
-  @media (min-width: 40rem) {
+  @media (width >= 40rem) {
     .usage__step {
       grid-template-columns: 4rem 1fr;
       gap: var(--token-spacing-8);
