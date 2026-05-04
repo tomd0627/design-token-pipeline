@@ -18,8 +18,8 @@
   "devDependencies": {
     "@fontsource/inter": "^5.2.8",
     "@tokens-studio/sd-transforms": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.59.1",
-    "@typescript-eslint/parser": "^8.59.1",
+    "@typescript-eslint/eslint-plugin": "^8.59.2",
+    "@typescript-eslint/parser": "^8.59.2",
     "eslint": "^10.3.0",
     "lucide": "^1.8.0",
     "prettier": "^3.8.3",
