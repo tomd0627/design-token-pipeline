@@ -18,15 +18,15 @@
   "devDependencies": {
     "@fontsource/inter": "^5.2.8",
     "@tokens-studio/sd-transforms": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.61.1",
-    "@typescript-eslint/parser": "^8.61.1",
-    "eslint": "^10.5.0",
-    "lucide": "^1.21.0",
-    "prettier": "^3.8.4",
+    "@typescript-eslint/eslint-plugin": "^8.62.0",
+    "@typescript-eslint/parser": "^8.62.0",
+    "eslint": "^10.6.0",
+    "lucide": "^1.22.0",
+    "prettier": "^3.9.3",
     "style-dictionary": "^5.5.0",
-    "stylelint": "^17.13.0",
+    "stylelint": "^17.14.0",
     "stylelint-config-standard": "^40.0.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16"
+    "vite": "^8.1.0"
   }
 }
